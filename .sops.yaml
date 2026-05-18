@@ -1,0 +1,7 @@
+keys:
+  - &nixos age1l0gl7m2wymqj4pasq2ejlp539mrk7cu6ty7adrryu6jslpdz749skdtsex
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+        - *nixos

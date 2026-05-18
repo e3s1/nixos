@@ -19,13 +19,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # sops-nix = {
-      # url = "github:Mic92/sops-nix";
-      # inputs.nixpkgs.follows = "nixpkgs";	
-    # };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";	
+    };
   };
 
-  outputs = inputs@{ self, home-manager, niri-flake, nixpkgs,  ... }: {
+  outputs = inputs@{ self, home-manager, niri-flake, sops-nix, nixpkgs,  ... }: {
 
 	nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
 	  specialArgs = { inherit inputs; };
@@ -36,11 +36,12 @@
 		./configuration.nix
 
 		home-manager.nixosModules.home-manager
-		# sops-nix.nixosModules.sops
+		sops-nix.nixosModules.sops
         
 		./modules/home-manager.nix
 		./modules/niri.nix
 		./modules/noctalia.nix
+		./modules/sops.nix
 	  ];
 	};
 
