@@ -7,6 +7,7 @@
   	fuzzel
   	libsecret
   	xwayland-satellite
+  	brightnessctl
   ];
   
   programs.niri = {
@@ -49,6 +50,22 @@
 	    { argv = ["noctalia-shell"]; }
 	    { argv = ["wl-clip-persist" "--clipboard" "regular"]; }	
 	  ];
+	  
+	  input = {
+	  	touchpad = {
+	  	  tap = true;
+	  	  natural-scroll = true;
+	  	  dwt = false;
+		  click-method = "clickfinger";	
+	  	};
+	  };
+
+	  outputs."eDP-1" = {
+	  	mode.width = 2880;
+	  	mode.height = 1800;
+	  	mode.refresh = 120.0;
+	  };
+	  
 	  window-rules = [
             {
               matches = [ { app-id = "firefox$"; title = "^Picture-in-Picture$"; } ];
@@ -72,7 +89,7 @@
             
             "XF86AudioRaiseVolume" = {
               allow-when-locked = true;
-              action.spawn = [ "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+" "-1" "1.0" ];
+              action.spawn = [ "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+" ];
             };
             "XF86AudioLowerVolume" = {
               allow-when-locked = true;
