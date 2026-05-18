@@ -12,7 +12,7 @@
   	  	mode = "0600";
   	  };
   	  "id_github_ed25519_pub" = {
-  	  	path = "/home/eric/.ssh/id_github_ed25519_pub";
+  	  	path = "/home/eric/.ssh/id_github_ed25519.pub";
   	  	owner = "eric";
   	  	group = "users";
   	  	mode = "0644";
