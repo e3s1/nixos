@@ -55,8 +55,9 @@
 	  	touchpad = {
 	  	  tap = true;
 	  	  natural-scroll = true;
-	  	  dwt = false;
 		  click-method = "clickfinger";	
+		  accel-speed = 0.0;
+		  accel-profile = "adaptive";
 	  	};
 	  };
 
@@ -65,87 +66,132 @@
 	  	mode.height = 1800;
 	  	mode.refresh = 120.0;
 	  };
+
+	  layout.focus-ring = {
+	  	width = 4;
+	  	active.color = "#cc6666";
+	  };
 	  
 	  window-rules = [
             {
               matches = [ { app-id = "firefox$"; title = "^Picture-in-Picture$"; } ];
               open-floating = true;
             }
+            {
+              geometry-corner-radius = 
+                let
+                  r = 8.0;
+                in
+                {
+                  top-left = r;
+                  top-right = r;
+                  bottom-left = r;
+                  bottom-right = r;
+                };
+              clip-to-geometry = true;
+            }
           ];
-          binds = {
-            "Mod+Shift+Slash".action.show-hotkey-overlay = [];
-            "Mod+T" = {
-              action.spawn = "alacritty";
-              hotkey-overlay.title = "Open Terminal";
-            };
-            "Mod+D" = {
-              action.spawn = "fuzzel";
-              hotkey-overlay.title = "Open Fuzzel";
-            };
-            "Super+Alt+L" = {
-              action.spawn = "swaylock";
-              hotkey-overlay.title = "Lock";
-            };
-            
-            "XF86AudioRaiseVolume" = {
-              allow-when-locked = true;
-              action.spawn = [ "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+" ];
-            };
-            "XF86AudioLowerVolume" = {
-              allow-when-locked = true;
-              action.spawn = [ "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-" ];
-            };
-            "XF86AudioMute" = {
-              allow-when-locked = true;
-              action.spawn = [ "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle" ];
-            };
-            "XF86AudioMicMute" = {
-              allow-when-locked = true;
-              action.spawn = [ "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle" ];
-            };
+          binds = lib.attrsets.mergeAttrsList [
+          	{
+	            "Mod+Shift+Slash".action.show-hotkey-overlay = [];
+	            "Mod+T" = {
+	              action.spawn = "alacritty";
+	              hotkey-overlay.title = "Open Terminal";
+	            };
+	            "Mod+D" = {
+	              action.spawn = "fuzzel";
+	              hotkey-overlay.title = "Open Fuzzel";
+	            };
+	            "Super+Alt+L" = {
+	              action.spawn = "swaylock";
+	              hotkey-overlay.title = "Lock";
+	            };
+	            
+	            "XF86AudioRaiseVolume" = {
+	              allow-when-locked = true;
+	              action.spawn = [ "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+" ];
+	            };
+	            "XF86AudioLowerVolume" = {
+	              allow-when-locked = true;
+	              action.spawn = [ "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-" ];
+	            };
+	            "XF86AudioMute" = {
+	              allow-when-locked = true;
+	              action.spawn = [ "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle" ];
+	            };
+	            "XF86AudioMicMute" = {
+	              allow-when-locked = true;
+	              action.spawn = [ "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle" ];
+	            };
 
-            "XF86AudioPlay" = {
-              allow-when-locked = true;
-              action.spawn = [ "playerctl" "play-pause" ];
-            };
-            "XF86AudioStop" = {
-              allow-when-locked = true;
-              action.spawn = [ "playerctl" "stop" ];
-            };
-            "XF86AudioPrev" = {
-              allow-when-locked = true;
-              action.spawn = [ "playerctl" "previous" ];
-            };        
-            "XF86AudioNext" = {
-              allow-when-locked = true;
-              action.spawn = [ "playerctl" "next" ];
-            };            
+	            "XF86AudioPlay" = {
+	              allow-when-locked = true;
+	              action.spawn = [ "playerctl" "play-pause" ];
+	            };
+	            "XF86AudioStop" = {
+	              allow-when-locked = true;
+	              action.spawn = [ "playerctl" "stop" ];
+	            };
+	            "XF86AudioPrev" = {
+	              allow-when-locked = true;
+	              action.spawn = [ "playerctl" "previous" ];
+	            };        
+	            "XF86AudioNext" = {
+	              allow-when-locked = true;
+	              action.spawn = [ "playerctl" "next" ];
+	            };            
 
-            "XF86MonBrightnessUp" = {
-              allow-when-locked = true;
-              action.spawn = [ "brightnessctl" "--class=backlight" "set" "+10%" ];	
-            };
-            "XF86MonBrightnessDown" = {
-              allow-when-locked = true;
-              action.spawn = [ "brightnessctl" "--class=backlight" "set" "10%-" ];	
-            };     
+	            "XF86MonBrightnessUp" = {
+	              allow-when-locked = true;
+	              action.spawn = [ "brightnessctl" "--class=backlight" "set" "+10%" ];	
+	            };
+	            "XF86MonBrightnessDown" = {
+	              allow-when-locked = true;
+	              action.spawn = [ "brightnessctl" "--class=backlight" "set" "10%-" ];	
+	            };     
 
-            "Mod+O" = {
-              repeat = false;
-              action.toggle-overview = [];
-            };
+	            "Mod+O" = {
+	              repeat = false;
+	              action.toggle-overview = [];
+	            };
 
-            "Mod+Q" = {
-              repeat = false;
-              action.close-window = [];
-            };
+	            "Mod+Q" = {
+	              repeat = false;
+	              action.close-window = [];
+	            };
 
-            "Mod+Left".action.focus-column-left = [];
-            "Mod+Down".action.focus-window-down = [];
-            "Mod+Up".action.focus-window-up = [];
-            "Mod+Right".action.focus-column-right = [];
+	            "Mod+Left".action.focus-column-left = [];
+	            "Mod+Down".action.focus-workspace-down = [];
+	            "Mod+Up".action.focus-workspace-up = [];
+	            "Mod+Right".action.focus-column-right = [];
 
-          };
+	            "Mod+Shift+Left".action.move-column-left = [];
+	            "Mod+Shift+Down".action.move-column-to-workspace-down = [];
+				"Mod+Shift+Up".action.move-column-to-workspace-up = [];
+	            "Mod+Shift+Right".action.move-column-right = [];
+	            
+	            "Mod+F".action.maximize-column = [];
+
+	        }
+
+            (builtins.listToAttrs (
+              lib.flatten (
+                map (n: [
+                  {
+              	    name = "Mod+${toString n}";
+              	    value.action.focus-workspace = n;
+              	  } 
+              	
+                  {
+              	    name = "Mod+Shift+${toString n}";
+              	    value.action.move-window-to-workspace = n;
+              	  }
+                ]) (lib.range 1 9)
+              )
+            ))
+
+	      ];
+       
       xwayland-satellite.path = "${lib.getExe pkgs.xwayland-satellite}";	
   	};
 
