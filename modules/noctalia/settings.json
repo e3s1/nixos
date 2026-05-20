@@ -5,7 +5,7 @@
     "position": "top",
     "monitors": [],
     "density": "default",
-    "showOutline": true,
+    "showOutline": false,
     "showCapsule": true,
     "capsuleOpacity": 1,
     "capsuleColorKey": "none",
