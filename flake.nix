@@ -39,6 +39,7 @@
 		sops-nix.nixosModules.sops
         
 		./modules/home-manager.nix
+		./modules/intel.nix
 		./modules/thunderbird.nix
 		./modules/niri.nix
 		./modules/noctalia

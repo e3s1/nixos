@@ -152,6 +152,7 @@
     # git-credential-libsecret
     # git-credential-manager
     libsecret
+    moonlight-qt
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
