@@ -54,10 +54,11 @@
 	  input = {
 	  	touchpad = {
 	  	  tap = true;
-	  	  natural-scroll = true;
+	  	  natural-scroll = false;
 		  click-method = "clickfinger";	
 		  accel-speed = 0.0;
 		  accel-profile = "adaptive";
+		  scroll-factor = 0.5;
 	  	};
 	  };
 
