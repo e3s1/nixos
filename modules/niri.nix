@@ -65,6 +65,7 @@
 	  	mode.width = 2880;
 	  	mode.height = 1800;
 	  	mode.refresh = 120.0;
+	  	variable-refresh-rate = true; # or "on-demand"
 	  };
 
 	  layout.focus-ring = {
