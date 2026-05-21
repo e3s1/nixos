@@ -121,9 +121,6 @@
   	  user.signingkey = config.sops.secrets."id_github_ed25519".path;
   	  init.defaultBranch = "main";
 	  credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
-  	  # credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
-  	  # credential.helper = "${pkgs.git-credential-manager}/bin/git-credential-manager";
-  	  # credential.credentialStore = "gpg"; # TODO: change to secretservice
   	  core.editor = "micro";
   	};
   };
