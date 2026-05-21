@@ -118,7 +118,7 @@
   	  user.name = "e3s1";
   	  user.email = "126372694+e3s1@users.noreply.github.com";
   	  gpg.format = "ssh";
-  	  user.signingkey = config.sops.secrets."id_github_ed25519".path;
+  	  user.signingkey = config.sops.secrets."id_github_ed25519_pub".path;
   	  init.defaultBranch = "main";
 	  credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
   	  core.editor = "micro";
