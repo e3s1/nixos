@@ -116,7 +116,7 @@
   	# package = pkgs.gitFull;
   	config = {
   	  user.name = "e3s1";
-  	  user.email = "126372694@users.noreply.github.com";
+  	  user.email = "126372694+e3s1@users.noreply.github.com";
   	  init.defaultBranch = "main";
 	  credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
   	  # credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
