@@ -2,6 +2,8 @@
 
 {
   home-manager.users.eric = { pkgs, ... }: {
+    nixpkgs.config.allowUnfree = true;
+  
   	home.packages = with pkgs; [
  	  micro
 	];

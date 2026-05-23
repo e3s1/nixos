@@ -39,6 +39,7 @@
 		sops-nix.nixosModules.sops
         
 		./modules/home-manager.nix
+		./modules/obsidian
 		./modules/intel.nix
 		./modules/spotify
 		./modules/niri.nix
