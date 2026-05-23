@@ -45,6 +45,7 @@
   	programs.niri.settings = {
 	  clipboard.disable-primary = true; # m-click paste
 	  prefer-no-csd = true;
+	  hotkey-overlay.skip-at-startup = true;
 	  spawn-at-startup = [
 #	    { argv = ["gnome-keyring-daemon" "--start" "--components=secrets"]; }
 	    { argv = ["noctalia-shell"]; }

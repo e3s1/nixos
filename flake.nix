@@ -40,7 +40,7 @@
         
 		./modules/home-manager.nix
 		./modules/intel.nix
-		./modules/thunderbird.nix
+		./modules/spotify
 		./modules/niri.nix
 		./modules/noctalia
 		./modules/sops.nix

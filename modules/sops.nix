@@ -17,6 +17,8 @@
   	  	group = "users";
   	  	mode = "0644";
   	  };
+  	  "spotify_client_id" = {};
+ 	  "spotify_client_secret" = {};
   	};
   };
 }
