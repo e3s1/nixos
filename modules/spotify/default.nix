@@ -18,7 +18,7 @@
   	xdg.desktopEntries.spotify-player = {
   	  name = "Spotify";
   	  genericName = "Spotify";
-  	  exec = "alacritty spotify_player";
+  	  exec = "alacritty --class spotify -e spotify_player";
 	  terminal = false;
   	  
       categories = [ "Audio" "Music" ];
