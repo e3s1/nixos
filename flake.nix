@@ -43,6 +43,7 @@
 		./modules/spotify
 		./modules/niri.nix
 		./modules/noctalia
+		./modules/plymouth
 		./modules/sops.nix
 	  ];
 	};
